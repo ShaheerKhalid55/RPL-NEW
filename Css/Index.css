@@ -1,1 +1,244 @@
+.heading
+{
+  font-size: 32px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  line-height: 24pt;     
 
+}
+
+.heading-medium
+{
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  line-height: 24pt;     
+
+}
+
+.paragraph
+{
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    line-height: 24pt; 
+}
+
+.nav-bar 
+{
+    position: relative;
+    z-index:1;
+    background-color: #14303e; 
+    overflow: hidden;
+    
+}
+
+.nav-bar a 
+{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 44px; 
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    line-height: 24pt; 
+}
+
+.nav-bar a:hover 
+{
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar-active 
+{
+    background-color: #666;
+}
+
+.image-container 
+{
+    position: relative;
+    width: 100%;
+}
+
+.image-container img 
+{
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: -60px;
+}
+
+.overlay-text 
+{
+    position: absolute;
+    top: 65%;
+    left: 24%;
+    transform: translate(-50%, -50%);
+    font-size: 64px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.banner-btn
+{
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    padding: 30px 64px;
+    color:white;
+    background-color: #14303e;
+    border-radius: 100px;
+     
+}
+
+.mt-160
+{
+    margin-top:160px;
+}
+
+
+.pbg-1
+{
+    background-color: #fafafa;
+    padding: 40px;
+}
+
+.pbg-1 img
+{
+    padding: 20px;
+}
+
+.pbg-2
+{
+    background-color: #f6f6f6;
+    padding: 40px;
+}
+
+.pbg-2 img
+{
+    padding: 20px;
+}
+
+.pbg-3
+{
+    background-color: #efefef;
+    padding: 40px;
+}
+
+.pbg-3 img
+{
+    padding: 20px;
+}
+
+.pbg-4
+{
+    background-color: #e9e9e9;
+    padding: 40px;
+}
+
+.pbg-4 img
+{
+    padding: 20px;
+}
+
+.vertically-centered-text 
+{
+display: flex;
+flex-direction: column;
+justify-content: center;
+height: 100%;
+}
+
+.circle 
+{
+height: 140px;
+width: 140px;
+background-color: #f4f4f4;
+border-radius: 50%;
+display: flex;
+align-items:center;
+justify-content: center;
+}
+
+.text-below-circle
+{
+    padding-left:20px;
+    padding-top:20px;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited 
+{
+    background-color: #14303e !important;
+    color:white;
+    border: none;
+}
+
+.box{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height:auto;
+    transition: transform .5s ease-in;
+    margin:8px auto;
+    background-color: white;
+}
+
+.box img{
+
+    max-width: 100%;
+    max-height: 100%;
+    width:100%;
+    background: white;
+}
+
+.box:hover{
+    transform: scale(1.2);
+}
+
+.row-bg
+{
+    background-color: #14303e;
+}
+
+li a{
+    text-decoration: none;
+    color:white;
+}
+
+li a:hover{
+    text-decoration: underline;
+}
+
+input{
+
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: white;
+    background: transparent;
+    color:white;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    line-height: 24pt; 
+    width:250px;
+
+}
+
+.subscribe-btn
+{
+    color:black;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    line-height: 24pt; 
+    background-color:white;
+    padding:8px;
+    border-radius: 5px;
+    width:180px;
+}
