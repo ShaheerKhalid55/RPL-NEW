@@ -58,7 +58,7 @@
 
 <!--Navbar-->
 <div class="container mt-5">
-<div class="nav-bar d-flex justify-content-center">
+<div id="nav-bar" class="nav-bar d-flex justify-content-center">
     <!-- <a class="navbar-active" href="#home">Home</a> -->
     <a href="#">Home</a>
     <a href="#about">About</a>
@@ -351,16 +351,27 @@ $(window).on("scroll", function()
 {
     if ($(window).scrollTop()) 
     {
-        $('.nav-bar').addClass('sticky');
-        $('.nav-bar').parent().removeClass('container');
-        $('.nav-bar').parent().addClass('container-fluid');
+        $('#nav-bar').addClass('sticky');
+        $('#nav-bar').parent().removeClass('container');
+        $('#nav-bar').parent().addClass('container-fluid');
+        
     } else 
     {
-        $('.nav-bar').removeClass('sticky');
-        $('.nav-bar').parent().removeClass('container-fluid');
-        $('.nav-bar').parent().addClass('container');
+        $('#nav-bar').removeClass('sticky');
+        $('#nav-bar').parent().removeClass('container-fluid');
+        $('#nav-bar').parent().addClass('container');
     }
 })
+
+var $root = $('html, body');
+
+$('a[href^="#"]').click(function () {
+    $root.animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top-150
+    }, 500);
+
+    return false;
+});
 
 });
 </script>
