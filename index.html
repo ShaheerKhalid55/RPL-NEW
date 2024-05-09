@@ -262,7 +262,7 @@
             <div class="col text-white">
                 <h6 class="heading-medium">CEO MESSAGE</h6>
                 <p class="mt-5 text-start">That started from this tropic port aboard this tiny ship today still want by theam government they survive on up to thetre east side to a deluxe as soldiers of artics fortune.</p>
-                <p class="text-start fw-bold">Any Quries: (+92)3422350748</p>
+                <i class="fa fa-phone" aria-hidden="true"></i><span class="text-start fw-bold ms-3">Any Quries: (+61)-406-713-757</span>
             </div>
             <div class="col text-white">
                 <h6 class="heading-medium" style="padding-left:75px;">CERTIFICATES</h6>
@@ -345,6 +345,22 @@ $('#back-to-top').click(function ()
     }, 400);
     return false;
 });
+
+
+$(window).on("scroll", function()
+{
+    if ($(window).scrollTop()) 
+    {
+        $('.nav-bar').addClass('sticky');
+        $('.nav-bar').parent().removeClass('container');
+        $('.nav-bar').parent().addClass('container-fluid');
+    } else 
+    {
+        $('.nav-bar').removeClass('sticky');
+        $('.nav-bar').parent().removeClass('container-fluid');
+        $('.nav-bar').parent().addClass('container');
+    }
+})
 
 });
 </script>

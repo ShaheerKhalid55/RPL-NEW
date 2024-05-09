@@ -58,6 +58,14 @@
     background-color: #666;
 }
 
+.sticky 
+{
+    position: fixed;
+    left:0;
+    top: 0;
+    width:100%;
+}
+
 .image-container 
 {
     position: relative;
