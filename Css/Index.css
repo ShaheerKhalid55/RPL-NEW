@@ -241,6 +241,12 @@ input{
     padding:8px;
     border-radius: 5px;
     width:180px;
+    border:none;
+}
+
+.subscribe-btn:hover
+{
+    background-color: #ddd;
 }
 
 .back-to-top 
@@ -249,4 +255,6 @@ input{
     bottom: 25px;
     right: 25px;
     display: none;
+    background-color: #ddd;
+    color: black;
 }
