@@ -242,3 +242,11 @@ input{
     border-radius: 5px;
     width:180px;
 }
+
+.back-to-top 
+{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
