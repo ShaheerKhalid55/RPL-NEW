@@ -6,21 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="Css/Index.css"/>
-    
+        
     <link rel="stylesheet" href="Css/owl.carousel.min.css">
     <link rel="stylesheet" href="Css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="Css/Index.css"/>
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="Js/owl.carousel.min.js"></script>
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script> -->
+    
 </head> 
 <body>
 
@@ -77,13 +82,82 @@
           <img src="Images/Banner.jpg" alt="banner image">
           <div class="container">
           <div class="overlay-text">
-            CERTIFY YOUR <br/> EXPERIENCE <br/> <button type="button" class="banner-btn">Contact us</button>
+            CERTIFY YOUR <br/> EXPERIENCE <br/> <button type="button" class="banner-btn" data-bs-toggle="modal" data-bs-target="#myModal">Contact us</button>
           </div>
         </div>
         </div>
     </div>
   </div>
 <!--Banner with content-->
+
+
+<!-- Contact us modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title heading">CONTACT US</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3 mt-3">
+                        <label class="paragraph" for="industry">Select Industry</label>
+                        <select class="form-select paragraph" id="industry" onchange='industry_based_qualifications(this.options[this.selectedIndex].value)'>
+                            <option value="Choose">Choose</option>
+                            <option value="Automotive Retail Service & Repair Licence">Automotive Retail Service & Repair Licence</option>
+                            <option value="Building & Construction">Building & Construction</option>
+                            <option value="Business & Finance">Business & Finance</option>
+                            <option value="Civil Construction">Civil Construction</option>
+                            <option value="Commerical Cookery And Hospitality">Commerical Cookery And Hospitality</option>
+                            <option value="Community Services">Community Services</option>
+                            <option value="Events & Entertainment">Events & Entertainment</option>
+                            <option value="Hair & Beauty">Hair & Beauty</option>
+                            <option value="Horticulture & Land Management">Horticulture & Land Management</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Mining and Resources">Mining and Resources</option>
+                            <option value="Plumbing Services">Plumbing Services</option>
+                            <option value="Retail Services">Retail Services</option>
+                            <option value="Security & Cleaning">Security & Cleaning</option>
+                            <option value="Transport & Logistics">Transport & Logistics</option>
+                            <option value="Vocational Education & Training">Vocational Education & Training</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="paragraph" for="qualification">Select Qualification</label>
+                        <select class="form-select paragraph" id="qualification">
+                            <option value="Choose">Choose</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        <input id="email" autocomplete="off" class="form-control" type="email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Description</label>
+                        <textarea id="description" class="form-control"  cols="40" rows="5"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <label id="error_msg" class="me-auto text-danger">Note: </label>
+                <button id="send_email" type="submit" class="btn btn-primary">Send Email</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact us modal -->
+
 
 <!--About us-->
 <div id="about" class="container mt-5">
@@ -373,7 +447,96 @@ $('a[href^="#"]').click(function () {
     return false;
 });
 
+//  $('#industry').selectpicker();
+//  $('#qualification').selectpicker();
+
+$("#send_email").click(function(){
+    
+    debugger
+
+    $("#error_msg").text("Note:");
+
+    var industry_value = $('#industry').find(":selected").text();
+    var qualification_value = $('#qualification').find(":selected").text();
+    var email_value = $('#email').val();
+    var description_value = $('#description').val();
+
+    if(industry_value==="Choose")
+    {
+        $("#error_msg").append(" Please select industry");
+        return;
+    }
+    else if(qualification_value === "Choose")
+    {
+        $("#error_msg").append(" Please select qualification");
+        return;
+    }
+    else if(email_value === "")
+    {
+        $("#error_msg").append(" Please enter email address");
+        return;
+    }
+    else if(description_value === "")
+    {
+        $("#error_msg").append(" Please enter description");
+        return;
+    }
+
+
+
+
+}); 
+
 });
+
+
+function industry_based_qualifications(industry_dropdown_value)
+{
+  debugger
+  let qualification_dropdown = document.getElementById('qualification');
+  
+  let qualifications_1_arr = [      "[AUR20420] - Certificate II in Automotive Electrical Technology",
+                                    "[AUR20520] - Certificate II in Automotive Servicing Technology",
+                                    "[UEE20120] - Certificate II in Split Air-conditioning and Heat Pump Systems",
+                                    "[AUR32120] - Certificate III in Automotive Body Repair Technology",
+                                    "[AUR31520] - Certificate III in Automotive Diesel Engine Technology",
+                                    "[AUR30320] - Certificate III in Automotive Electrical Technology",
+                                    "[AUR32420] - Certificate III in Automotive Refinishing Technology",
+                                    "[AUR31120] - Certificate III in Heavy Commercial Vehicle Mechanical Technology",
+                                    "[AUR30620] - Certificate III in Light Vehicle Mechanical Technology",
+                                    "[AUR31220] - Certificate III in Mobile Plant Technology",
+                                    "[AUR30820] - Certificate III in Motorcycle Mechanical Technology",
+                                    "[AUR40720] - Certificate IV in Automotive Body Repair Technology",
+                                    "[AUR40620] - Certificate IV in Automotive Electrical Technology",
+                                    "[AUR40216] - Certificate IV in Automotive Mechanical Diagnosis",
+                                    "[AUR40820] - Certificate IV in Automotive Mechanical Overhauling",
+                                    "[AUR50116] - Diploma of Automotive Management",
+                                    "[AUR50216] - Diploma of Automotive Technology"
+                            ];
+
+    let empty_arr=["Choose"];
+
+    if(industry_dropdown_value === "Choose")
+    {
+        $('#qualification').empty();
+         $.each(empty_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Automotive Retail Service & Repair Licence")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_1_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+
+    $('#qualification').selectpicker('refresh');
+}
+
+
 </script>
 
 </body>
