@@ -124,7 +124,9 @@
                             <option value="Civil Construction">Civil Construction</option>
                             <option value="Commerical Cookery And Hospitality">Commerical Cookery And Hospitality</option>
                             <option value="Community Services">Community Services</option>
+                            <option value="Community Services">Engineering</option>
                             <option value="Events & Entertainment">Events & Entertainment</option>
+                            <option value="First Aid">First Aid</option>
                             <option value="Hair & Beauty">Hair & Beauty</option>
                             <option value="Horticulture & Land Management">Horticulture & Land Management</option>
                             <option value="Information Technology">Information Technology</option>
@@ -134,6 +136,7 @@
                             <option value="Security & Cleaning">Security & Cleaning</option>
                             <option value="Transport & Logistics">Transport & Logistics</option>
                             <option value="Vocational Education & Training">Vocational Education & Training</option>
+                            <option value="Other">Other</option>                
                         </select>
                     </div>
 
@@ -557,6 +560,155 @@ function industry_based_qualifications(industry_dropdown_value)
                                     "[AUR50216] - Diploma of Automotive Technology"
                             ];
 
+    let qualifications_2_arr = [      
+        "[CPC60220] - Advanced Diploma of Building and Construction (Management)",
+        "[CPC10120] - Certificate I in Construction",
+        "[UEE32220] - Certificate III in Air-conditioning and Refrigeration",
+        "[CPC33020] - Certificate III in Bricklaying and Blocklaying",
+        "[MSF30322] - Certificate III in Cabinet Making and Timber Technology",
+        "[CPC30220] - Certificate III in Carpentry",
+        "[CPC30320] - Certificate III in Concreting",
+        "[CPC31420] - Certificate III in Construction Waterproofing",
+        "[MSF30422] - Certificate III in Glass and Glazing",
+        "[CPC31920] - Certificate III in Joinery",
+        "[AHC30921] - Certificate III in Landscape Construction",
+        "[CPC30620] - Certificate III in Painting and Decorating",
+        "[CPC30120] - Certificate III in Shopfitting",
+        "[CPC31020] - Certificate III in Solid Plastering",
+        "[CPC32320] - Certificate III in Stonemasonry",
+        "[CPC31320] - Certificate III in Wall & Floor Tiling",
+        "[CPC31220] - Certificate III in Wall and Ceiling Lining",
+        "[CPC40120] - Certificate IV in Building and Construction",
+        "[BSB41419] - Certificate IV in Work Health and Safety",
+        "[CPC50220] - Diploma of Building and Construction (Building)",
+        "[BSB50820] - Diploma of Project Management"
+    ];
+
+
+    let qualifications_3_arr = [      
+        "[BSB60120] - Advanced Diploma of Business",
+        "[BSB60420] - Advanced Diploma of Leadership and Management",
+        "[BSB60720] - Advanced Diploma of Program Management",
+        "[BSB30120] - Certificate III in Business",
+        "[BSB30220] - Certificate III in Entrepreneurship and New Business",
+        "[BSB40120] - Certificate IV in Business",
+        "[BSB40320] - Certificate IV in Entrepreneurship and New Business",
+        "[BSB40520] - Certificate IV in Leadership and Management",
+        "[BSB40920] - Certificate IV in Project Management Practice",
+        "[BSB50120] - Diploma of Business",
+        "[BSB50320] - Diploma of Human Resources Management",
+        "[BSB50420] - Diploma of Leadership and Management",
+        "[BSB50620] - Diploma of Marketing and Communication",
+        "[BSB50920] - Diploma of Quality Auditing",
+        "[BSB51319] - Diploma of Work Health and Safety",
+        "[BSB80120] - Graduate Diploma of Management (Learning)",
+        "[BSB80220] - Graduate Diploma of Portfolio Management",
+        "[BSB80320] - Graduate Diploma of Strategic Leadership",
+    ];
+
+    let qualifications_4_arr = [      
+        "[RII30920] - Certificate III in Civil Construction (General)",
+        "[RII30820] - Certificate III in Civil Construction Plant Operations",
+        "[RII40720] - Certificate IV in Civil Construction",
+    ];
+
+    let qualifications_5_arr = [      
+        "[SIT60322] - Advanced Diploma of Hospitality Management",
+        "[SIT30821] - Certificate III in Commercial Cookery",
+        "[SIT31021] - Certificate III in Patisserie",
+        "[SIT40521] - Certificate IV in Kitchen Management",
+        "[SIT40721] - Certificate IV in Patisserie",
+        "[SIT50422] - Diploma of Hospitality Management"
+    ];
+
+    let qualifications_6_arr = [      
+        "[CHC62015] - Advanced Diploma of Community Sector Management",
+        "[CHC30121] - Certificate III in Early Childhood Education and Care",
+        "[CHC33021] - Certificate III in Individual Support",
+        "[CHC43015] - Certificate IV in Ageing Support",
+        "[CHC41215] - Certificate IV in Career Development",
+        "[CHC43315] - Certificate IV in Mental Health",
+        "[CHC53315] - Diploma of Mental Health",
+        "[CHC52021] - Diploma of Community Services",
+        "[CHC50121] - Diploma of Early Childhood Education and Care",
+        "[CHC81315] - Graduate Certificate in Career Development Practice"
+    ];
+
+    let qualifications_7_arr = [      
+        "[MEM60122] - Advanced Diploma of Engineering",
+        "[MEM31922] - Certificate III in Engineering – Fabrication Trade",
+        "[MEM30219] - Certificate III in Engineering – Mechanical Trade",
+        "[MEM40119] - Certificate IV in Engineering",
+        "[MEM50119] - Diploma of Engineering – Advanced Trade",
+        "[MEM50222] - Diploma of Engineering – Technical",
+    ];
+
+
+    let qualifications_8_arr = [      
+        "[CUA41220] - Certificate IV in Screen and Media",
+        "[CUA51020] - Diploma of Screen and Media",
+    ];
+
+    let qualifications_9_arr = [      
+        "[SHB20216] - Certificate II in Salon Assistant",
+        "[SHB30516] - Certificate III in Barbering",
+        "[SHB30121] - Certificate III in Beauty Services",
+        "[SHB30416] - Certificate III in Hairdressing",
+        "[SHB30221] - Certificate III in Make-Up",
+        "[SHB30321] - Certificate III in Nail Technology",
+        "[SHB40121] - Certificate IV in Beauty Therapy",
+        "[SHB40216] - Certificate IV in Hairdressing",
+        "[SHB50121] - Diploma of Beauty Therapy",
+        "[SHB50216] - Diploma of Salon Management"
+    ];
+
+    let qualifications_10_arr = [      
+        "[AHC30722] - Certificate III in Horticulture",
+    ];
+
+    let qualifications_11_arr = [      
+        "[ICT60220] - Advanced Diploma of Information Technology",
+        "[ICT50220] - Diploma of Information Techonology"
+    ];
+
+    let qualifications_12_arr = [      
+        "[PMA30120] - Certificate III in Process Plant Operations",
+        "[RII30120] - Certificate III in Surface Extraction Operations"
+    ];
+
+    let qualifications_13_arr = [      
+        "[CPC32420] - Certificate III in Plumbing",
+        "[CPC32620] - Certificate III in Roof Plumbing",
+        "[CPC40920] - Certificate IV in Plumbing and Services"
+    ];
+
+    let qualifications_14_arr = [      
+        "Choose"
+    ];
+
+    let qualifications_15_arr = [      
+        "Choose"
+    ];
+
+    let qualifications_16_arr = [      
+        "[TLI50221] - Diploma of Logistics"
+    ];
+
+    let qualifications_17_arr = [      
+        "[BSB80120] - Graduate Diploma of Management (Learning)"
+    ];
+
+    let qualifications_18_arr = [      
+        "[HLTAID011] - First Aid",
+        "[HLTAID009] - First Aid In Cardiopulmonary Resuscitation",
+        "[HLTAID012] - Fid Aid In Education And Care Setting"
+    ];
+    
+    let qualifications_19_arr = [      
+        "Other"
+    ];
+
+
     let empty_arr=["Choose"];
 
     if(industry_dropdown_value === "Choose")
@@ -575,7 +727,150 @@ function industry_based_qualifications(industry_dropdown_value)
              $('#qualification').append( new Option(text,val) ); 
          });
     }
-
+    else if(industry_dropdown_value === "Building & Construction")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_2_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Business & Finance")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_3_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Civil Construction")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_4_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Commerical Cookery And Hospitality")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_5_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Community Services")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_6_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Engineering")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_7_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Events & Entertainment")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_8_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Hair & Beauty")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_9_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Horticulture & Land Management")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_10_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Information Technology")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_11_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Mining and Resources")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_12_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Plumbing Services")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_13_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Retail Services")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_14_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Security & Cleaning")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_15_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Transport & Logistics")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_16_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Vocational Education & Training")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_17_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "First Aid")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_18_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
+    else if(industry_dropdown_value === "Other")
+    {
+         $('#qualification').empty();
+         $.each(qualifications_19_arr, function(val, text) 
+         {
+             $('#qualification').append( new Option(text,val) ); 
+         });
+    }
     //$('#qualification').selectpicker('refresh');
 }
 
