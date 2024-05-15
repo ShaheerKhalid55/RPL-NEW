@@ -502,32 +502,32 @@ $("#send_email").click(function(){
                 $("#error_msg").append(" Please enter valid email address");
                 return;
             }
+            else
+            {
+                let params = 
+                {
+                    qualification_value:qualification_value,
+                    description_value:description_value,
+                    email_value: email_value
+                }
+
+                emailjs.send("service_sk8j8vl","template_o8xd914",params).then(
+
+                    (response) => {
+                        console.log('SUCCESS!', response.status, response.text);
+                        $("#error_msg").append(" Email sent successfully");
+                        $('#industry option[value="Choose"]').attr("selected",true);
+                        $('#qualification').find('option').remove().end().append('<option value="Choose">Choose</option>');
+                        $('#email').val("");
+                        $('#description').val("");
+                    },
+                    (error) => {
+                        console.log('FAILED...', error);
+                    }
+                );
+            }
         }
-    });
-
-
-    let params = 
-    {
-        qualification_value:qualification_value,
-        description_value:description_value,
-        email_value: email_value
-    }
-
-    emailjs.send("service_sk8j8vl","template_o8xd914",params).then(
-
-        (response) => {
-            console.log('SUCCESS!', response.status, response.text);
-            $("#error_msg").append(" Email sent successfully");
-            $('#industry option[value="Choose"]').attr("selected",true);
-            $('#qualification').find('option').remove().end().append('<option value="Choose">Choose</option>');
-            $('#email').val("");
-            $('#description').val("");
-        },
-        (error) => {
-            console.log('FAILED...', error);
-        }
-    );
-    
+    });    
 });
 
 });
