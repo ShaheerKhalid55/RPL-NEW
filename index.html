@@ -518,7 +518,10 @@ $("#send_email").click(function(){
         (response) => {
             console.log('SUCCESS!', response.status, response.text);
             $("#error_msg").append(" Email sent successfully");
-            
+            $('#industry option[value="Choose"]').attr("selected",true);
+            $('#qualification').find('option').remove().end().append('<option value="Choose">Choose</option>');
+            $('#email').val("");
+            $('#description').val("");
         },
         (error) => {
             console.log('FAILED...', error);
