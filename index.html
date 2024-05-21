@@ -148,7 +148,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="email">Email</label>
+                        <label for="email">Email Type</label>
+                        <select id="email_type">
+                            <option value="Simple">Simple</option>
+                            <option  value="Work or Business">Work or Business</option>
+                        </select>
                         <input id="email" autocomplete="off" class="form-control" type="email"/>
                     </div>
 
@@ -471,6 +475,7 @@ $("#send_email").click(function(){
     var industry_value = $('#industry').find(":selected").text();
     var qualification_value = $('#qualification').find(":selected").text();
     var email_value = $('#email').val();
+    var email_type = $('#email_type').find(":selected").text();
     var description_value = $('#description').val();
 
     if(industry_value==="Choose")
@@ -500,40 +505,63 @@ $("#send_email").click(function(){
         dataType: 'json',
         success: function(data)
         {
-            if(data.disposable=="Invalid Email" || data.disposable=="Unknown" || data.disposable=="Disposable")
+            if(email_type==="Simple")
             {
-                $("#error_msg").append(" Please enter valid email address");
-                return;
-            }
-            else
-            {
-                let params = 
+                if(data.disposable=="Invalid Email" || data.disposable=="Unknown" || data.disposable=="Disposable")
                 {
-                    qualification_value:qualification_value,
-                    description_value:description_value,
-                    email_value: email_value
+                    $("#error_msg").append(" Please enter valid email address");
+                    return;
                 }
-
-                emailjs.send("service_sk8j8vl","template_o8xd914",params).then(
-
-                    (response) => {
-                        console.log('SUCCESS!', response.status, response.text);
-                        $("#error_msg").append(" Email sent successfully");
-                        $('#industry option[value="Choose"]').attr("selected",true);
-                        $('#qualification').find('option').remove().end().append('<option value="Choose">Choose</option>');
-                        $('#email').val("");
-                        $('#description').val("");
-                    },
-                    (error) => {
-                        console.log('FAILED...', error);
-                    }
-                );
+                else
+                {
+                    send_email(qualification_value,description_value,email_value);
+                }
+            }
+            else if(email_type==="Work or Business")
+            {
+                if(data.validSyntax=="false")
+                {
+                    $("#error_msg").append(" Please enter valid email address");
+                    return;
+                }
+                else
+                {
+                    send_email(qualification_value,description_value,email_value);
+                }
             }
         }
     });    
 });
 
 });
+
+
+function send_email(qualification_value,description_value,email_value)
+{
+    debugger
+    let params = 
+    {
+        qualification_value:qualification_value,
+        description_value:description_value,
+        email_value: email_value
+    }
+
+    emailjs.send("service_sk8j8vl","template_o8xd914",params).then(
+
+        (response) => {
+            console.log('SUCCESS!', response.status, response.text);
+            $("#error_msg").append(" Email sent successfully");
+            $('#industry option[value="Choose"]').attr("selected",true);
+            $('#qualification').find('option').remove().end().append('<option value="Choose">Choose</option>');
+            $('#email').val("");
+            $('#email_type option[value="Simple"]').attr("selected",true);
+            $('#description').val("");
+        },
+        (error) => {
+            console.log('FAILED...', error);
+        }
+    );
+}
 
 
 function industry_based_qualifications(industry_dropdown_value)
