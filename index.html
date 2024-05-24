@@ -105,6 +105,12 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
+            <div id="loadingoverlay">
+                <div class="cv-spinner">
+                    <span class="spinner"></span>
+                </div>
+            </div>
+
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title heading">CONTACT US</h4>
@@ -166,7 +172,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <label id="error_msg" class="me-auto text-danger">Note: </label>
-                <button id="send_email" type="submit" class="btn btn-primary">Send Email</button>
+                <button id="send_email" type="button" class="btn btn-primary">Send Email</button>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
@@ -383,7 +389,6 @@
 <!--Footer-->
 
 <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
-
 <script>
 $(document).ready(function()
 {
@@ -499,6 +504,8 @@ $("#send_email").click(function(){
         return;
     }
 
+    $("#loadingoverlay").fadeIn();
+
     $.ajax({
         type: "GET",
         url: "https://emailapi.onrender.com/api/validate?email="+email_value,
@@ -514,6 +521,7 @@ $("#send_email").click(function(){
                 }
                 else
                 {
+
                     send_email(qualification_value,description_value,email_value);
                 }
             }
@@ -529,8 +537,12 @@ $("#send_email").click(function(){
                     send_email(qualification_value,description_value,email_value);
                 }
             }
+
+            $("#loadingoverlay").fadeOut();
         }
-    });    
+    });  
+
+
 });
 
 });
@@ -539,6 +551,9 @@ $("#send_email").click(function(){
 function send_email(qualification_value,description_value,email_value)
 {
     debugger
+
+
+
     let params = 
     {
         qualification_value:qualification_value,
@@ -551,10 +566,10 @@ function send_email(qualification_value,description_value,email_value)
         (response) => {
             console.log('SUCCESS!', response.status, response.text);
             $("#error_msg").append(" Email sent successfully");
-            $('#industry option[value="Choose"]').attr("selected",true);
+            $('#industry option[value="Choose"]').attr("selected","selected");
             $('#qualification').find('option').remove().end().append('<option value="Choose">Choose</option>');
             $('#email').val("");
-            $('#email_type option[value="Simple"]').attr("selected",true);
+            $('#email_type option[value="Simple"]').attr("selected","selected");
             $('#description').val("");
         },
         (error) => {
